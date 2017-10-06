@@ -3,7 +3,7 @@ import arcade
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 720
 SPRITE_SCALING = 0.5
-MOVEMENT_SPEED = 5
+MOVEMENT_SPEED = 10
 class Player(arcade.Sprite):
     def update(self):
         self.center_x += self.change_x
@@ -28,7 +28,7 @@ class NinjaWindow(arcade.Window):
         self.all_sprites_list = arcade.SpriteList()
 
         self.score = 0
-        self.player_sprite = Player("pics/ninja1.jpg", SPRITE_SCALING)
+        self.player_sprite = Player("pics/ninja1use.png", SPRITE_SCALING)
         self.player_sprite.center_x = 500
         self.player_sprite.center_y = 500
         self.all_sprites_list.append(self.player_sprite)
@@ -39,7 +39,6 @@ class NinjaWindow(arcade.Window):
     def update(self, delta_time):
         self.all_sprites_list.update()    
     def on_key_press(self, key, modifiers):
-
         if key == arcade.key.UP:
             self.player_sprite.change_y = MOVEMENT_SPEED
         elif key == arcade.key.DOWN:
